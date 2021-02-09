@@ -7,8 +7,8 @@ from numpy.testing import assert_almost_equal
 with open(sys.argv[1]) as json_file:
     data = json.load(json_file)
 
-    assert_almost_equal(data['coordinates'][0], 18.96, 2)
-    assert_almost_equal(data['coordinates'][1], 69.66, 2)
+    assert_almost_equal(data['coordinates'][0], 69.66, 2)
+    assert_almost_equal(data['coordinates'][1], 18.96, 2)
     assert_almost_equal(data['jan']['min'], 233.0, 0)
     assert_almost_equal(data['jan']['max'], 258.0, 0)
     assert_almost_equal(data['jan']['mean'], 246.8, 0)

@@ -25,7 +25,7 @@ jobs:
     - name: Prepare testing datafile
       run: cp .github/workflows/miniMSR-2.nc MSR-2.nc
     - name: Try ozon.py 
-      run: python ozon.py 18.96 69.66
+      run: python ozon.py 69.66 18.96
     - name: Check ozon.png
       run: test -e ./ozon.png
     - name: Check ozon.json
