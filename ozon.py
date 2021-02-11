@@ -9,6 +9,7 @@ parser.add_argument('latitude',  metavar='LAT', type=float, help='Latitude, deg'
 if __name__ == "__main__":
     args = parser.parse_args()
     print(args.longitude, args.latitude)
+import json
 from scipy.io import netcdf
 import matplotlib.pyplot as plt
 import numpy as np
@@ -47,3 +48,16 @@ with netcdf.netcdf_file("MSR-2.nc", mmap=False) as netcdf_file:
     plt.plot(np.arange(0,468, 12), netcdf_file.variables['Average_O3_column'].data[np.arange(0, 468, 12), index_lat, index_lon])
     plt.plot(np.arange(0,468, 12), netcdf_file.variables['Average_O3_column'].data[np.arange(6, 468, 12), index_lat, index_lon])
     plt.savefig('ozon.png')
+coordinates = {'coordinates':[args.lontitude,args.lantitude],
+              file = { 'coordinates': [lon, lat],
+            'jan': {'min': float('{:.1f}'.format(min_jan)),
+                    'max': float('{:.1f}'.format(max_jul)),
+                    'mean': float('{:.1f}'.format(sum_jan/39))},
+            'jul': {'min': float('{:.1f}'.format(min_jul)),
+                    'max': float('{:.1f}'.format(max_jul)),
+                    'mean': float('{:.1f}'.format(sum_jul/39))},
+            'all': {'min': float('{:.1f}'.format(min(z))),
+                    'max': float('{:.1f}'.format(max(z))),
+                    'mean': float('{:.1f}'.format(np.mean(z)))}}
+with open('ozon.json', 'w') as f:
+json.dump(coordinates, f)
