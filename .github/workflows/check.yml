@@ -21,7 +21,7 @@ jobs:
       with:
         python-version: 3.8
     - name: Install requirements
-      run: pip install scipy matplotlib
+      run: pip install -r requirements.txt
     - name: Prepare testing datafile
       run: cp .github/workflows/miniMSR-2.nc MSR-2.nc
     - name: Try ozon.py 
