@@ -4,7 +4,7 @@ import argparse
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument('filename', nargs='?', default='coords.csv')
+parser.add_argument('filename', nargs='?', default='locations.csv')
 
 
 if __name__ == "__main__":

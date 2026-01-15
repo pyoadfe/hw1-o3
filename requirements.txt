@@ -1,4 +1,0 @@
-geopy
-matplotlib
-numpy
-scipy
